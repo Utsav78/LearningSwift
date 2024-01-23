@@ -10,21 +10,27 @@ import SwiftUI
 struct ContentView: View {
     @State private var showAlert = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, World!")
-            Text("Hello Utsav!")
-                .onTapGesture {
-                    showAlert = true
+        VStack(alignment: .leading) {
+            Text("Turtle Rocks")
+                .font(.title)
+            HStack {
+                Text("Joshua Tree National Park")
+                    .font(.subheadline)
+                    .onTapGesture {
+                        showAlert = true
+                    }
+                    .alert(isPresented: $showAlert) {
+                        Alert(title: Text("Popup message"),
+                              message: Text("You clicked the text"),
+                              dismissButton: .default(Text("OK"))
+                              )
                 }
-                .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Popup message"),
-                          message: Text("You clicked the text"),
-                          dismissButton: .default(Text("OK"))
-                          )
-                }
+                Spacer()
+                Text("California")
+                    .font(.subheadline)
+            }
+    
+            
         }
         .padding()
     }
