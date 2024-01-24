@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F314A552B61286D00F74053 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F314A542B61286D00F74053 /* CircleImage.swift */; };
+		6F314A572B612BEE00F74053 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F314A562B612BEE00F74053 /* MapView.swift */; };
 		6F4A0E1D2B57654D00820D8B /* LearningSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A0E1C2B57654D00820D8B /* LearningSwiftApp.swift */; };
 		6F4A0E1F2B57654D00820D8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A0E1E2B57654D00820D8B /* ContentView.swift */; };
 		6F4A0E212B57654E00820D8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A0E202B57654E00820D8B /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		6F314A542B61286D00F74053 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		6F314A562B612BEE00F74053 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		6F4A0E192B57654D00820D8B /* LearningSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F4A0E1C2B57654D00820D8B /* LearningSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningSwiftApp.swift; sourceTree = "<group>"; };
 		6F4A0E1E2B57654D00820D8B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		6F4A0E102B57654D00820D8B = {
 			isa = PBXGroup;
 			children = (
+				6F314A562B612BEE00F74053 /* MapView.swift */,
 				6F4A0E1B2B57654D00820D8B /* LearningSwift */,
 				6F4A0E2C2B57654E00820D8B /* LearningSwiftTests */,
 				6F4A0E362B57654E00820D8B /* LearningSwiftUITests */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F4A0E1F2B57654D00820D8B /* ContentView.swift in Sources */,
+				6F314A572B612BEE00F74053 /* MapView.swift in Sources */,
 				6F4A0E1D2B57654D00820D8B /* LearningSwiftApp.swift in Sources */,
 				6F314A552B61286D00F74053 /* CircleImage.swift in Sources */,
 			);
