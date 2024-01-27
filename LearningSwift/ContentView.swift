@@ -28,7 +28,7 @@ struct ContentView: View {
                         }
                         .alert(isPresented: $showAlert) {
                             Alert(title: Text("Popup message"),
-                                  message: Text("You clicked the text"),
+                                  message: Text("It is a surprising granitic formation, 24 metres (79 feet) high, whose form reminds of a turtle. Its old name was Mungut Khad. Located at the foothills of a mountain covered of pines, this rocky formation is incontestably a photo opportunity while you're on the road for Terelj."),
                                   dismissButton: .default(Text("OK"))
                             )
                         }
@@ -44,8 +44,8 @@ struct ContentView: View {
                 
                 Text("About Turtle Rock")
                     .font(.title2)
+
                 Text("It is a surprising granitic formation, 24 metres (79 feet) high, whose form reminds of a turtle. Its old name was Mungut Khad. Located at the foothills of a mountain covered of pines, this rocky formation is incontestably a photo opportunity while you're on the road for Terelj.")
-                    .font(.none)
                     .multilineTextAlignment(.leading)
             }
             .padding()
