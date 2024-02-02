@@ -13,10 +13,19 @@ struct LandmarkList: View {
 //            LandmarkRow(landmark: landmark)
 //        }
         // when we use Identifiable in Landmark, we can directly create the list of landmarks . no id required 
-        
-        List(landmarks) { landmark in
-            LandmarkRow(landmark: landmark)
+        NavigationSplitView {
+            List(landmarks) { landmark in
+                NavigationLink {
+                    LandmarkDetail()
+                } label: {
+                    LandmarkRow(landmark: landmark)
+                }
+            }
+            .navigationTitle("Landmarks")
+        } detail: {
+            Text("Select a Landmark")
         }
+        
     }
 }
 
