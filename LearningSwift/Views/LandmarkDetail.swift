@@ -8,43 +8,44 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    var landmark: Landmark
     var body: some View {
-        VStack {
-            MapView()
+        ScrollView {
+            MapView(coordinate: landmark.locationCoordinate)
                 .frame(height: 300)
-            CircleImage()
+            CircleImage(image: landmark.image)
                 .offset(y: -130)
                 .padding(.bottom, -130)
             
             VStack(alignment: .leading) {
-                Text("Turtle Rocks")
+                Text(landmark.name)
                     .font(.title)
                 HStack {
-                    Text("Joshua Tree National Park")
+                    Text(landmark.park)
                         .font(.subheadline)
+                    Spacer()
+                    Text(landmark.state)
                 }
-                Spacer()
-                Text("California")
-                    .font(.subheadline)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                
+                
+                Divider()
+                
+                Text("About \(landmark.name)")
+                    .font(.title2)
+                
+                Text(landmark.description)
             }
-            .font(.subheadline)
-            .foregroundStyle(.secondary)
-            
-            Divider()
-            
-            
-            Text("About Turtle Rock")
-                .font(.title2)
-            
-            Text("It is a surprising granitic formation, 24 metres (79 feet) high, whose form reminds of a turtle. Its old name was Mungut Khad. Located at the foothills of a mountain covered of pines, this rocky formation is incontestably a photo opportunity while you're on the road for Terelj.")
-                .multilineTextAlignment(.leading)
+            .padding()
+            Spacer()
         }
-        .padding()
-        Spacer()
+        .navigationTitle(landmark.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 
 #Preview {
-    LandmarkDetail()
+    LandmarkDetail(landmark: landmarks[0])
 }
