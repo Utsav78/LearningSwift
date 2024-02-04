@@ -29,7 +29,7 @@ struct Landmark: Hashable, Codable, Identifiable {
                latitude: coordinates.latitude,
                longitude: coordinates.longitude)
        }
-    
+    // why do we need codable ?
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double
