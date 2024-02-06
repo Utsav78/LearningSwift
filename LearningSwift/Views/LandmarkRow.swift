@@ -17,6 +17,11 @@ struct LandmarkRow: View {
             Text(landmark.name)
             // why both the view align at the left end when spacer is used ??
             Spacer()
+            
+            if landmark.isFavorite {
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+            }
         }
         
     }

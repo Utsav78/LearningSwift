@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    @State private var showFavoriteOnly = true
+    
+    var filteredLandmarks: [Landmark] {
+        landmarks.filter { landmark in
+            (!showFavoriteOnly || landmark.isFavorite)
+        }
+    }
+    
     var body: some View {
 //        List(landmarks, id: \.id) { landmark in
 //            LandmarkRow(landmark: landmark)
 //        }
         // when we use Identifiable in Landmark, we can directly create the list of landmarks . no id required 
         NavigationSplitView {
-            List(landmarks) { landmark in
+            List(filteredLandmarks) { landmark in
                 NavigationLink {
                     LandmarkDetail(landmark: landmark)
                 } label: {
