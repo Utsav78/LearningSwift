@@ -34,6 +34,5 @@ struct CategoryHome: View {
 }
 
 #Preview {
-    CategoryHome()
-        .environment(ModelData())
+    CategoryHome().environment(ModelData())
 }
