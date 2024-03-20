@@ -1,32 +1,33 @@
 //
 //  LandmarkList.swift
-//  LearningSwift
+//  WatchLandmarks Watch App
 //
-//  Created by Utsav Budathoki on 1/2/2024.
+//  Created by Utsav Budathoki on 20/3/2024.
 //
 
 import SwiftUI
 
+
 struct LandmarkList: View {
     @Environment(ModelData.self) var modelData
-    @State private var showFavoriteOnly = false
-    
+    @State private var showFavoritesOnly = false
+
+
     var filteredLandmarks: [Landmark] {
         modelData.landmarks.filter { landmark in
-            (!showFavoriteOnly || landmark.isFavorite)
+            (!showFavoritesOnly || landmark.isFavorite)
         }
     }
-    
+
+
     var body: some View {
-        //        List(landmarks, id: \.id) { landmark in
-        //            LandmarkRow(landmark: landmark)
-        //        }
-        // when we use Identifiable in Landmark, we can directly create the list of landmarks . no id required
         NavigationSplitView {
             List {
-                Toggle(isOn: $showFavoriteOnly) {
-                    Text("Favorite Only")
+                Toggle(isOn: $showFavoritesOnly) {
+                    Text("Favorites only")
                 }
+
+
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
                         LandmarkDetail(landmark: landmark)
@@ -37,14 +38,14 @@ struct LandmarkList: View {
             }
             .animation(.default, value: filteredLandmarks)
             .navigationTitle("Landmarks")
-            .frame(minWidth: 300)
         } detail: {
             Text("Select a Landmark")
         }
-        
     }
 }
 
+
 #Preview {
-    LandmarkList().environment(ModelData())
+    LandmarkList()
+        .environment(ModelData())
 }
