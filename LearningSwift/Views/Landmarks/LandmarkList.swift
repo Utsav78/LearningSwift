@@ -7,26 +7,41 @@
 
 import SwiftUI
 
+
 struct LandmarkList: View {
     @Environment(ModelData.self) var modelData
-    @State private var showFavoriteOnly = false
+    @State private var showFavoritesOnly = false
+    @State private var filter = FilterCategory.all
+    
+    
+    enum FilterCategory: String, CaseIterable, Identifiable {
+        case all = "All"
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+        
+        
+        var id: FilterCategory { self }
+    }
+    
     
     var filteredLandmarks: [Landmark] {
         modelData.landmarks.filter { landmark in
-            (!showFavoriteOnly || landmark.isFavorite)
+            (!showFavoritesOnly || landmark.isFavorite)
+            && (filter == .all || filter.rawValue == landmark.category.rawValue)
         }
     }
     
+    
+    var title: String {
+        let title = filter == .all ? "Landmarks" : filter.rawValue
+        return showFavoritesOnly ? "Favorite \(title)" : title
+    }
+    
+    
     var body: some View {
-        //        List(landmarks, id: \.id) { landmark in
-        //            LandmarkRow(landmark: landmark)
-        //        }
-        // when we use Identifiable in Landmark, we can directly create the list of landmarks . no id required
         NavigationSplitView {
             List {
-                Toggle(isOn: $showFavoriteOnly) {
-                    Text("Favorite Only")
-                }
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
                         LandmarkDetail(landmark: landmark)
@@ -36,15 +51,35 @@ struct LandmarkList: View {
                 }
             }
             .animation(.default, value: filteredLandmarks)
-            .navigationTitle("Landmarks")
+            .navigationTitle(title)
             .frame(minWidth: 300)
+            .toolbar {
+                ToolbarItem {
+                    Menu {
+                        Picker("Category", selection: $filter) {
+                            ForEach(FilterCategory.allCases) { category in
+                                Text(category.rawValue).tag(category)
+                            }
+                        }
+                        .pickerStyle(.inline)
+                        
+                        
+                        Toggle(isOn: $showFavoritesOnly) {
+                            Label("Favorites only", systemImage: "star.fill")
+                        }
+                    } label: {
+                        Label("Filter", systemImage: "slider.horizontal.3")
+                    }
+                }
+            }
         } detail: {
             Text("Select a Landmark")
         }
-        
     }
 }
 
+
 #Preview {
-    LandmarkList().environment(ModelData())
+    LandmarkList()
+        .environment(ModelData())
 }
