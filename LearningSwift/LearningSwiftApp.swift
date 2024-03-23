@@ -7,22 +7,33 @@
 
 import SwiftUI
 
+
 @main
-struct LearningSwiftApp: App {
+struct LandmarksApp: App {
     @State private var modelData = ModelData()
+
+
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(modelData)
-            
         }
-#if !os(watchOS)
+        #if !os(watchOS)
         .commands {
             LandmarkCommands()
         }
-#endif
-#if os(watchOS)
+        #endif
+
+
+        #if os(watchOS)
         WKNotificationScene(controller: NotificationController.self, category: "LandmarkNear")
-#endif
+        #endif
+
+
+        #if os(macOS)
+        Settings {
+            LandmarkSettings()
+        }
+        #endif
     }
 }
