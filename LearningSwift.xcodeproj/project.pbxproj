@@ -274,12 +274,12 @@
 			children = (
 				6F31571E2BA0701100419EEE /* ContentView.swift */,
 				6F4441DF2BA329CD00830B71 /* LandmarkDetail.swift */,
-				6F3157202BA0701100419EEE /* Assets.xcassets */,
-				6F3157222BA0701100419EEE /* Preview Content */,
 				6F0830A02BA720630067FBA9 /* NotificationView.swift */,
 				6F0830A22BA720B90067FBA9 /* NotificationController.swift */,
-				6F0830A42BA722220067FBA9 /* PushNotificationPayload.apns */,
 				6F1D07B42BAAC0A7006B01D7 /* LandmarkList.swift */,
+				6F0830A42BA722220067FBA9 /* PushNotificationPayload.apns */,
+				6F3157202BA0701100419EEE /* Assets.xcassets */,
+				6F3157222BA0701100419EEE /* Preview Content */,
 			);
 			path = "WatchLandmarks Watch App";
 			sourceTree = "<group>";
@@ -393,12 +393,12 @@
 			isa = PBXGroup;
 			children = (
 				6F8AFA822BA7F13C002048C5 /* ContentView.swift */,
-				6F8AFA842BA7F13D002048C5 /* Assets.xcassets */,
-				6F8AFA892BA7F13D002048C5 /* MacLandmarks.entitlements */,
-				6F8AFA862BA7F13D002048C5 /* Preview Content */,
 				6F8AFA9A2BA91198002048C5 /* LandmarkDetail.swift */,
 				6F57B87D2BAD9A9C0010ACA2 /* LandmarkCommands.swift */,
 				6F64DABB2BAE538600D317D3 /* LandmarkSettings.swift */,
+				6F8AFA892BA7F13D002048C5 /* MacLandmarks.entitlements */,
+				6F8AFA842BA7F13D002048C5 /* Assets.xcassets */,
+				6F8AFA862BA7F13D002048C5 /* Preview Content */,
 			);
 			path = MacLandmarks;
 			sourceTree = "<group>";
